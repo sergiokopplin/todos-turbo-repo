@@ -2,6 +2,8 @@ import { Footer, Info, Header, NewTodo, Todo, TodoList, ToggleAll } from "ui";
 import Head from "next/head";
 
 export default function Web() {
+  const hasTodos = false;
+
   return (
     <>
       <Head>
@@ -13,17 +15,22 @@ export default function Web() {
           <NewTodo />
         </Header>
 
-        <section className="main">
-          <ToggleAll />
+        {hasTodos && (
+          <>
+            <section className="main">
+              <>
+                <ToggleAll />
+                <TodoList>
+                  <Todo />
+                  <Todo />
+                  <Todo />
+                </TodoList>
+              </>
+            </section>
 
-          <TodoList>
-            <Todo />
-            <Todo />
-            <Todo />
-          </TodoList>
-        </section>
-
-        <Footer />
+            <Footer />
+          </>
+        )}
       </section>
 
       <Info />
